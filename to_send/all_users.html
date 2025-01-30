@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-panel">
+        
+        <button id="sidebarToggle" class="toggle-btn">☰</button>
+
+       
+        <aside class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="all_users.html">All Users</a></li>
+                <li><a href="manage_quizzes.html">Manage Quizzes</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </aside>
+
+  
+        <main class="main-content" id="mainContent">
+            <h1>All Users</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Joined On</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>2023-10-01</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>2023-10-02</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Alice Johnson</td>
+                        <td>alice@example.com</td>
+                        <td>2023-10-03</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script>
+      
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const toggleBtn = document.getElementById('sidebarToggle');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-panel">
+        <!-- Toggle Button -->
+        <button id="sidebarToggle" class="toggle-btn">☰</button>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="all_users.html">All Users</a></li>
+                <li><a href="manage_quizzes.html">Manage Quizzes</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <h1>Welcome to Admin Dashboard</h1>
+            <p>This is the admin dashboard. Use the sidebar to navigate.</p>
+        </main>
+    </div>
+
+    <script>
+        // Toggle Sidebar
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const toggleBtn = document.getElementById('sidebarToggle');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+            getElementById('toggle-btn').classList.add('active')
+        });
+    </script>
+</body>
+</html>

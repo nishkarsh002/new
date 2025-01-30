@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Quizzes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="admin-panel">
+        
+        <button id="sidebarToggle" class="toggle-btn">☰</button>
+
+       
+        <aside class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="all_users.html">All Users</a></li>
+                <li><a href="manage_quizzes.html">Manage Quizzes</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </aside>
+
+       
+        <main class="main-content" id="mainContent">
+            <h1>Manage Quizzes</h1>
+            <form id="quizForm">
+                <div class="form-group">
+                    <label for="title">Quiz Title</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Quiz Description</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="time">Quiz Time (minutes)</label>
+                    <input type="number" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Quiz Price ($)</label>
+                    <input type="number" id="price" name="price" step="0.01" required>
+                </div>
+                <button type="submit">Add Quiz</button>
+            </form>
+
+            <h2>All Quizzes</h2>
+            <table id="quizTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Time (minutes)</th>
+                        <th>Price ($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <td>1</td>
+                        <td>General Knowledge</td>
+                        <td>Test your general knowledge.</td>
+                        <td>10</td>
+                        <td>5.00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Science Quiz</td>
+                        <td>Test your science knowledge.</td>
+                        <td>15</td>
+                        <td>7.50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script>
+ 
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        const toggleBtn = document.getElementById('sidebarToggle');
+
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+        });
+
+     
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const time = document.getElementById('time').value;
+            const price = document.getElementById('price').value;
+
+            
+            const table = document.getElementById('quizTable').getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+            const idCell = newRow.insertCell(0);
+            const titleCell = newRow.insertCell(1);
+            const descriptionCell = newRow.insertCell(2);
+            const timeCell = newRow.insertCell(3);
+            const priceCell = newRow.insertCell(4);
+
+            idCell.textContent = table.rows.length;  
+            titleCell.textContent = title;
+            descriptionCell.textContent = description;
+            timeCell.textContent = time;
+            priceCell.textContent = price;
+
+            // Clear the form
+            document.getElementById('quizForm').reset();
+        });
+    </script>
+</body>
+</html>
